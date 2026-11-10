@@ -1,0 +1,31 @@
+
+1. LED Light Wall Controller (Stranger_Lights.py)
+
+This script interfaces with an addressable NeoPixel LED strip over SPI to replicate Joyce Byers' famous living room wall.
+• Dynamic Effects: Features an introductory red chase sequence and a multi-color "twinkle" ambiance routine.
+• Secret Message Speller: Uses a custom coordinate-mapped dictionary decoder to spell out alphanumeric phrases character-by-character (e.g., "I AM RIGHT HERE... RUN", "GO NOW").
+• Alert Flashes: Triggers full-strip red, green, or blue strobe pulses to signify shifts into the Upside Down.
+
+
+2. Interactive Phone Audio Log (Stranger_Phone.py)
+
+This script uses gpiozero to monitor a physical microswitch or button wired to an antique prop telephone's hook.
+• Smart Loop: Simulates an incoming call by ringing continuously via mplayer while the handset is on the hook.
+• State Detection: Instantly cuts the ringer and adjusts the system sound volume when the handset is lifted or hung up.
+• Progressive Storytelling: Seamlessly tracks the conversation count using a state counter. Every time the phone is picked up, it plays the next sequential audio log or Easter egg clip before wrapping around.
+
+Hardware Requirements
+
+• Single Board Computer: Raspberry Pi 5 (or compatible Pi model with SPI & GPIO support)
+• Lighting: Addressable NeoPixel LED Strip (WS2812B / WS2811 mapped over SPI)
+• Audio: Phone handset prop wired to a button switch (GPIO 17) and an active audio output (3.5mm jack or HDMI).
+
+Setup & Dependencies
+
+Ensure your Raspberry Pi is configured with SPI enabled via raspi-config. Install the required system packages and Python libraries:
+
+# Install media and system tools
+sudo apt-get update && sudo apt-get install mplayer alsa-utils -y
+
+# Install Python modules
+pip3 install gpiozero adafruit-circuitpython-neopixel-spi
